@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Twitter.Adminnamespace;
+using Twitter.PostNameSpace;
 using Twitter.Usernamespace;
 
 namespace Twitter.Models.Start
@@ -48,9 +49,46 @@ namespace Twitter.Models.Start
                             if (selectedIndex == 0)
                             {
                             bool AdminIsIn = HandleAdminLogin();
-                            if (AdminIsIn)
+                            while (AdminIsIn == true)
                             {
-                                Admin.addPost();
+                                Console.Clear();
+                                if (AdminIsIn)
+                                {
+                                    Console.WriteLine("[1]-Share Post\n[2]-Show all Posts\n[3]-See All Users\n[4]-Notifications\n[5]-Exit");
+                                    string? secim = Console.ReadLine();
+                                    if (secim == "1")
+                                    {
+                                        Console.Clear();
+                                        Admin.addPost();
+                                        Console.WriteLine("Press any key for continue...");
+                                        Console.ReadKey();
+                                    }
+                                    else if (secim == "2")
+                                    {
+                                        Console.Clear();
+                                        Admin.showPosts();
+                                        Console.WriteLine("Press any key for continue...");
+                                        Console.ReadKey();
+                                    }
+                                    else if (secim == "3")
+                                    {
+                                        Console.Clear();
+                                        User.showAllUsers();
+                                        Console.WriteLine("Press any key for continue...");
+                                        Console.ReadKey();
+                                    }
+                                    else if (secim == "4")
+                                    {
+                                        Console.Clear();
+                                        Admin.showNotifications();
+                                        Console.WriteLine("Press any key for continue...");
+                                        Console.ReadKey();
+                                    }
+                                    else if (secim == "5")
+                                    {
+                                        AdminIsIn = false;
+                                    }
+                                }
                             }
         
 
@@ -132,9 +170,28 @@ namespace Twitter.Models.Start
                             if(loginedUser != null)
                             {
                                 Admin.showPosts();
-                                Console.ReadKey();
+                                if (Admin.countPosts() != 0)
+                                {
+                                    while (true)
+                                    {
+                                        Console.WriteLine("Enter id for view Post:");
+                                        try
+                                        {
+                                            int id = Convert.ToInt32(Console.ReadLine());
+                                            Admin.ViewPost(id);
+
+                                            Console.ReadKey();
+                                        }
+                                        catch (Exception ex)
+                                        {
+
+                                            Console.WriteLine(ex.Message);
+                                        }
+                                    }
+                                }
+                        
                             }
-                            else { Console.WriteLine("Olmadii");
+                            else { Console.WriteLine("User Not Found!");
                                 Console.ReadKey();
                             }
                         }

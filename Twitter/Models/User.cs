@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Twitter.Models;
 
 namespace Twitter.Usernamespace
 {
@@ -63,6 +64,21 @@ namespace Twitter.Usernamespace
             }
         }
 
+        public static void showAllUsers()
+        {string filePath = "User.json";
+            string json = File.ReadAllText(filePath);
+            List<User?> userList = JsonConvert.DeserializeObject<List<User?>>(json);
+            if (userList != null)
+            {
+                foreach (User user in userList)
+                {
+                    Console.WriteLine(user);
+                }
+            }
+            else { Console.WriteLine("Users empty!"); }
+            Console.ReadKey();
+        }
+
         public static User? SignIn()
         {
             string? email;
@@ -89,6 +105,8 @@ namespace Twitter.Usernamespace
 
         public static User SignUp()
         {
+            Random random = new Random();
+            int rand = random.Next(100, 999);
             string? name;
             string? surname;
             int age;
@@ -105,23 +123,37 @@ namespace Twitter.Usernamespace
             email = Console.ReadLine();
             Console.WriteLine("Enter your password:");
             password = Console.ReadLine();
-
-            try
+            sendEmail.send(email, "Verification", rand.ToString());
+            Console.WriteLine("Enter your verification code(email):");
+            string verify= Console.ReadLine();
+            if(verify == null)
             {
-                User newuser = new User(name, surname, age, email, password);
-                return newuser;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.ReadKey();
+                Console.WriteLine("verification code is wrong");
                 return null;
             }
+            if (verify == rand.ToString())
+            {
+
+                try
+                {
+                    User newuser = new User(name, surname, age, email, password);
+                    Console.WriteLine("Sign up succesfully!");
+                    Console.ReadKey();
+                    return newuser;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.ReadKey();
+                    return null;
+                }
+            }
+            return null;
         }
 
         public override string ToString()
         {
-            string txt=this.Name+" "+this.Surname+" "+this.Age+" "+ this.Email+" "+this.Password;
+            string txt="Id: "+this.Id+"\n"+"Name: "+this.Name+"\n"+"Surname: "+this.Surname+"\n"+"Age: "+this.Age+"\n"+"Email: "+ this.Email+"\n"+"Password: "+this.Password+"\n";
             return txt;
         }
     }

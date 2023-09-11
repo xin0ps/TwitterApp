@@ -30,11 +30,10 @@ using Twitter.Models;
 using Twitter.Models.Start;
 using Twitter.Usernamespace;
 
-Random random= new Random();
-int rand=random.Next(100,999);
 
-sendEmail.send("rasulsha@code.edu.az", "Verify", rand.ToString());
-//Menu.menu();
+
+
+Menu.menu();
 //User.ReadJson();
 
 

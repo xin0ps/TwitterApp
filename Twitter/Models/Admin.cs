@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Twitter.PostNameSpace;
+using Twitter.NotificationNamespace;
+using Twitter.Usernamespace;
+using System.ComponentModel.Design;
 
 namespace Twitter
 {
@@ -15,8 +18,8 @@ namespace Twitter
             private string? username = null;
             private string? email = null;
             private string? password = null;
-            static List<Post> posts = new List<Post>();
-            private string? notifications = null;
+            private static List<Post> posts = new List<Post>();
+            private static List<Notificaiton> notifications = new List<Notificaiton>();
 
             public Guid Id
             {
@@ -48,6 +51,10 @@ namespace Twitter
                     email = value;
                 }
             }
+            public static int countPosts()
+            {
+                return posts.Count;
+            }
 
             public string? Password
             {
@@ -75,23 +82,28 @@ namespace Twitter
                 }
             }
 
-            public string? Notifications
+            public List<Notificaiton> Notifications
             {
                 get { return notifications; }
                 set
                 {
-                    if (string.IsNullOrWhiteSpace(value))
-                    {
-                        throw new ArgumentException("Nofitications null");
-                    }
+                  
                     notifications = value;
                 }
             }
             static public void showPosts()
             {
-                foreach (var item in posts)
+                if (posts.Count != 0)
                 {
-                    Console.WriteLine(item);
+                    foreach (var item in posts)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+                else {
+                    Console.Clear();
+                    Console.WriteLine("Post yoxdur!");
+                    Console.ReadKey();
                 }
             }
             public Admin(string _username, string _email, string _password)
@@ -102,6 +114,55 @@ namespace Twitter
                 Password = _password;
                
              
+            }
+
+            public static void addNotifications(User user , string cont)
+            {
+                notifications.Add(new Notificaiton($"{cont}+[by-{user.Name} {user.Surname}]"));
+
+            }
+            public static void showNotifications()
+            {
+                if (notifications != null)
+                {
+                    foreach (var item in notifications)
+                    {
+                        Console.WriteLine(item + "\n");
+                    }
+                    return;
+                }
+                else { Console.WriteLine("Empty");
+                         return;
+                }
+
+
+            }
+            public static void ViewPost(int id)
+            {
+                Console.Clear();
+                foreach (var item in posts)
+                {
+                    if (item.Id == id)
+                    {
+                        item.ViewCount++;
+                        Console.WriteLine(item);
+                        Console.WriteLine("For like press [l]");
+                        Console.WriteLine("For exit press another key");
+                        ConsoleKey key = Console.ReadKey().Key;
+                        if (key == ConsoleKey.L)
+                        {
+                            item.LikeCount++;
+                            Console.WriteLine("Post Liked!");
+                            Console.ReadKey();
+                        }
+                       
+                    }
+                    else
+                    {
+                        Console.WriteLine("Post movcud deyil!");
+                        Console.ReadKey();
+                    }
+                }
             }
             public static void addPost()
             {
