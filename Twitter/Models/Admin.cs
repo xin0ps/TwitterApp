@@ -118,7 +118,7 @@ namespace Twitter
 
             public static void addNotifications(User user , string cont)
             {
-                notifications.Add(new Notificaiton($"{cont}+[by-{user.Name} {user.Surname}]"));
+                notifications.Add(new Notificaiton(cont));
 
             }
             public static void showNotifications()
@@ -132,20 +132,50 @@ namespace Twitter
                     return;
                 }
                 else { Console.WriteLine("Empty");
+                    Console.ReadKey();
                          return;
                 }
 
 
             }
-            public static void ViewPost(int id)
+            public static Post ViewPost(int id)
             {
                 Console.Clear();
                 foreach (var item in posts)
                 {
                     if (item.Id == id)
                     {
+                        
                         item.ViewCount++;
                         Console.WriteLine(item);
+                        return item;
+
+
+
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Post movcud deyil!");
+                        Console.ReadKey();
+                        return null;
+                    }
+                   
+                }
+                return null;
+            }
+
+            public static Post LikePost(int id)
+            {
+               
+                foreach (var item in posts)
+                {
+                    if (item.Id == id)
+                    {
+
+                       
+                        
+                       
                         Console.WriteLine("For like press [l]");
                         Console.WriteLine("For exit press another key");
                         ConsoleKey key = Console.ReadKey().Key;
@@ -153,17 +183,27 @@ namespace Twitter
                         {
                             item.LikeCount++;
                             Console.WriteLine("Post Liked!");
+
+
                             Console.ReadKey();
+                            return item;
+
                         }
-                       
+
+
                     }
                     else
                     {
-                        Console.WriteLine("Post movcud deyil!");
+                       
                         Console.ReadKey();
+                        return null;
                     }
+
                 }
+                return null;
             }
+
+
             public static void addPost()
             {
                 Console.WriteLine("Write Your Post:");

@@ -13,7 +13,7 @@ namespace Twitter.Models.Start
 
         public class Menu
         {
-            private static Admin admin = new Admin("admin", "steptest226@gmail.com", "admin");
+            private static Admin admin = new Admin("admin", "rasulsha@code.edu.az", "admin");
           
            
 
@@ -167,37 +167,68 @@ namespace Twitter.Models.Start
                         if (selectedIndex == 0)
                         {
                             User loginedUser = User.SignIn();
-                            if(loginedUser != null)
+                            while (loginedUser != null)
                             {
-                                Admin.showPosts();
-                                if (Admin.countPosts() != 0)
+                                if (loginedUser != null)
                                 {
-                                    while (true)
+                                    Console.Clear();
+                                    Console.WriteLine("[1]-Show Posts\n[2]-Exit");
+                                    string? choose = Console.ReadLine();
+                                    if (choose == "1")
                                     {
-                                        Console.WriteLine("Enter id for view Post:");
-                                        try
+                                        Console.Clear();
+                                        Admin.showPosts();
+                                        if (Admin.countPosts() != 0)
                                         {
-                                            int id = Convert.ToInt32(Console.ReadLine());
-                                            Admin.ViewPost(id);
+                                            while (true)
+                                            {
+                                                Console.WriteLine("Enter id for view Post ([0]-for exit):");
+                                                try
+                                                {
+                                                    int id = Convert.ToInt32(Console.ReadLine());
+                                                    if(id == 0)
+                                                    {
+                                                        break;
+                                                    }
+                                                    Post post = Admin.ViewPost(id);
+                                                    if (post != null)
+                                                    {
+                                                        Admin.addNotifications(loginedUser, $"{loginedUser.Name} {loginedUser.Surname} viewed your Post id: {post.Id}");
+                                                        sendEmail.sendview(admin.Email, "Viewed Your Post ", $"{loginedUser.Name} {loginedUser.Surname} viewed your Post id: {post.Id}");
+                                                        Post post1 = Admin.LikePost(id);
+                                                        if (post1 != null)
+                                                        {
+                                                            Admin.addNotifications(loginedUser, $"{loginedUser.Name} {loginedUser.Surname} Liked your Post id: {post.Id}");
+                                                            sendEmail.sendview(admin.Email, "Liked Your Post ", $"{loginedUser.Name} {loginedUser.Surname} Liked your Post id: {post.Id}");
+                                                            break;
+                                                        }
+                                                        else { break; }
+                                                    }
 
-                                            Console.ReadKey();
-                                        }
-                                        catch (Exception ex)
-                                        {
+                                                    Console.ReadKey();
+                                                }
+                                                catch (Exception ex)
+                                                {
 
-                                            Console.WriteLine(ex.Message);
+                                                    Console.WriteLine(ex.Message);
+                                                }
+                                            }
                                         }
+                                        else { Console.WriteLine("Post empty"); }
+
                                     }
+                                    if (choose == "2") { break; }
                                 }
-                        
-                            }
-                            else { Console.WriteLine("User Not Found!");
-                                Console.ReadKey();
+                                else
+                                {
+                                    Console.WriteLine("User Not Found!");
+                                    Console.ReadKey();
+                                }
                             }
                         }
                         else if (selectedIndex == 1)
                         {
-                           User.SignUp();
+                            User.SignUp();
                         }
                         else if (selectedIndex == 2)
                         {

@@ -123,7 +123,7 @@ namespace Twitter.Usernamespace
             email = Console.ReadLine();
             Console.WriteLine("Enter your password:");
             password = Console.ReadLine();
-            sendEmail.send(email, "Verification", rand.ToString());
+            sendEmail.sendverification(email, "Verification", rand.ToString());
             Console.WriteLine("Enter your verification code(email):");
             string verify= Console.ReadLine();
             if(verify == null)

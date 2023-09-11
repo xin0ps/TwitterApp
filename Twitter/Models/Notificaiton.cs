@@ -9,7 +9,7 @@ namespace Twitter.NotificationNamespace
     public  class Notificaiton
     {
         public string content { get; set; }
-        public DateTime time { get; set; }
+         public DateTime time { get; set; }
         public Notificaiton(string _cont) {
         
         content= _cont;
@@ -18,7 +18,7 @@ namespace Twitter.NotificationNamespace
         public override string ToString()
         {
             string? txt=content+"\tTime:"+time;
-            return content;
+            return txt;
            
 
         }
