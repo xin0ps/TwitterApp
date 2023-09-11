@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "evYW8Wp1Vz19ezb381APENrh2Nj9e77ST8ZpBQCwKk7vN5JihL9x4SCbaKo80iHwS4eG8teW1MEnjP/rU1EHhw==",
+  "dgSpecHash": "xhE8BkzaQ0ZOQ04fO4ylcrV5ranqXEmEQSOTMcpTaejokU5UZ/P3ix3JLVDbH/CqpnUCtbBNys6XViwAa+lhRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\source\\repos\\Twitter\\Twitter\\Twitter.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\Twitter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -11,11 +11,11 @@ namespace Twitter
     {
         internal class Admin
         {
-            Guid id;
+            private Guid id;
             private string? username = null;
             private string? email = null;
             private string? password = null;
-            private Post[]? posts = null;
+            static Post[]? posts = null;
             private string? notifications = null;
 
             public Guid Id
@@ -62,7 +62,7 @@ namespace Twitter
                 }
             }
 
-            public Post[] Post
+            public Post[]? Post
             {
                 get { return posts; }
                 set
@@ -87,14 +87,20 @@ namespace Twitter
                     notifications = value;
                 }
             }
-
-            public Admin(string _username, string _email, string _password, Post[] _posts)
+            static public void showPosts()
+            {
+                foreach (var item in posts)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+            public Admin(string _username, string _email, string _password)
             {
                 
                 Username = _username;
                 Email = _email;
                 Password = _password;
-                Post = _posts;
+               
              
             }
         }

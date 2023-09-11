@@ -26,22 +26,10 @@ her defe notificationlar yaransin hem Admin klasindaki notification elave olunsu
  */
 
 
-using Twitter;
-using Twitter.Adminnamespace;
-using Twitter.PostNameSpace;
+using Twitter.Models.Start;
+using Twitter.Usernamespace;
 
-Post[] newPosts = new Post[5]
-{
-    new Post("Test-1"),
-    new Post("Test-2"),
-    new Post("Test-3"),
-    new Post("Test-4"),
-    new Post("Test-5")
-};
-
-
-foreach (var post in newPosts)
-Console.WriteLine(post);
-Admin admin=new Admin("admin", "steptest226@gmail.com","admin123",newPosts);
+//Menu.menu();
+User.ReadJson();
 
 

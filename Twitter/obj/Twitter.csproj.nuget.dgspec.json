@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\source\\repos\\Twitter\\Twitter\\Twitter.csproj": {}
+    "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\Twitter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\source\\repos\\Twitter\\Twitter\\Twitter.csproj": {
+    "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\Twitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\Twitter\\Twitter\\Twitter.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\Twitter.csproj",
         "projectName": "Twitter",
-        "projectPath": "C:\\Users\\PC\\source\\repos\\Twitter\\Twitter\\Twitter.csproj",
+        "projectPath": "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\Twitter.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\source\\repos\\Twitter\\Twitter\\obj\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
