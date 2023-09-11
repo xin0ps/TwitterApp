@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\ROG\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\Twitter.csproj",
+      "projectUniqueName": "C:\\Users\\ROG\\Desktop\\TwitterApp-master\\TwitterApp-master\\Twitter\\Twitter.csproj",
       "projectName": "Twitter",
-      "projectPath": "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\Twitter.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\Twitter\\Twitter\\obj\\",
+      "projectPath": "C:\\Users\\ROG\\Desktop\\TwitterApp-master\\TwitterApp-master\\Twitter\\Twitter.csproj",
+      "packagesPath": "C:\\Users\\ROG\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ROG\\Desktop\\TwitterApp-master\\TwitterApp-master\\Twitter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ROG\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

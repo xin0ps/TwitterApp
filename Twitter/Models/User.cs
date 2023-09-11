@@ -10,104 +10,27 @@ namespace Twitter.Usernamespace
 {
     internal class User
     {
-        Guid id;
-        public Guid Id
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int Age { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+
+        public User()
         {
-            get { return id; }
+            Id = Guid.NewGuid();
         }
 
-        private string? name = null;
-        public string? Name
+        public User(string userName, string userSurname, int userAge, string userEmail, string userPassword)
         {
-            get { return name; }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                   throw new ArgumentException("Name cannot be null or empty.");
-                }
-                name = value;
-            }
-        }
-
-        private string? surname = null;
-        public string? Surname
-        {
-            get { return surname; }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                  throw new ArgumentException("Surname cannot be null or empty.");
-                }
-                surname = value;
-            }
-        }
-
-        private int? age = null;
-        public int? Age
-        {
-            get { return age; }
-            set
-            {
-                if (value < 0 || value > 150)
-                {
-                    throw new ArgumentException("Invalid Age value.");
-                }
-                age = value;
-            }
-        }
-
-        private string? email = null;
-        public string? Email
-        {
-            get { return email; }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value) || !value.Contains("@"))
-                {
-                    throw new ArgumentException("Invalid Email value.");
-                }
-                email = value;
-            }
-        }
-
-        private string? password = null;
-        public string? Password
-        {
-            get { return password; }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException("Password cannot be null or empty.");
-                }
-                password = value;
-            }
-        }
-
-        public User(string userName, string userSurname, int? userAge, string userEmail, string userPassword)
-        {
-            id = Guid.NewGuid();
+            Id = Guid.NewGuid();
             Name = userName;
             Surname = userSurname;
             Age = userAge;
             Email = userEmail;
             Password = userPassword;
             SaveToJson();
-        }
-
-        public static void ReadJson()
-        {
-            string json = File.ReadAllText("User.json");
-            Console.WriteLine(json);
-
-            List<User> userList = JsonConvert.DeserializeObject<List<User>>(json);
-
-            foreach (User user in userList)
-            {
-                Console.WriteLine("User Name: " + user.Name);
-            }
         }
         private void SaveToJson()
         {
@@ -116,7 +39,7 @@ namespace Twitter.Usernamespace
             userList.Add(this);
 
           
-            string json = JsonConvert.SerializeObject(userList);
+            string json = JsonConvert.SerializeObject(userList,Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
 
@@ -127,7 +50,7 @@ namespace Twitter.Usernamespace
                 if (File.Exists(filePath))
                 {
                     string json = File.ReadAllText(filePath);
-                    List<User> userList = JsonConvert.DeserializeObject<List<User>>(json);
+                    List<User?> userList = JsonConvert.DeserializeObject<List<User?>>(json);
                     return userList;
                 }
                 return null;
@@ -135,6 +58,7 @@ namespace Twitter.Usernamespace
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.ReadKey();
                 return null;
             }
         }
@@ -167,7 +91,7 @@ namespace Twitter.Usernamespace
         {
             string? name;
             string? surname;
-            int? age;
+            int age;
             string? email;
             string? password;
             Console.WriteLine("Enter your Name:");

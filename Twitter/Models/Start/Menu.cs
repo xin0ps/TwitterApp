@@ -13,8 +13,8 @@ namespace Twitter.Models.Start
         public class Menu
         {
             private static Admin admin = new Admin("admin", "steptest226@gmail.com", "admin");
-            private  User user = new User("Rasul", "Aslanov", 24, "test", "user123");
-            private static bool adminIsIn = false;
+          
+           
 
             public static void menu()
             {
@@ -47,18 +47,25 @@ namespace Twitter.Models.Start
                             Console.Clear();
                             if (selectedIndex == 0)
                             {
-                                HandleAdminLogin();
+                            bool AdminIsIn = HandleAdminLogin();
+                            if (AdminIsIn)
+                            {
+                                Admin.addPost();
+                            }
+        
+
+                            
                             }
                             else if (selectedIndex == 1)
                             {
-                                HandleUserMenu();
+                              HandleUserMenu();
                             }
                             break;
                     }
                 }
             }
 
-            private static void HandleAdminLogin()
+            private static bool HandleAdminLogin()
             {
                 while (true)
                 {
@@ -71,8 +78,8 @@ namespace Twitter.Models.Start
                     {
                         if (username == admin.Username && password == admin.Password)
                         {
-                            adminIsIn = true;
-                            break;
+                            return  true;
+                            
                         }
                         else
                         {
@@ -87,6 +94,7 @@ namespace Twitter.Models.Start
                         break;
                     }
                 }
+            return false;
             }
 
             private static void HandleUserMenu()
@@ -124,6 +132,10 @@ namespace Twitter.Models.Start
                             if(loginedUser != null)
                             {
                                 Admin.showPosts();
+                                Console.ReadKey();
+                            }
+                            else { Console.WriteLine("Olmadii");
+                                Console.ReadKey();
                             }
                         }
                         else if (selectedIndex == 1)

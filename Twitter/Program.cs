@@ -26,10 +26,15 @@ her defe notificationlar yaransin hem Admin klasindaki notification elave olunsu
  */
 
 
+using Twitter.Models;
 using Twitter.Models.Start;
 using Twitter.Usernamespace;
 
+Random random= new Random();
+int rand=random.Next(100,999);
+
+sendEmail.send("rasulsha@code.edu.az", "Verify", rand.ToString());
 //Menu.menu();
-User.ReadJson();
+//User.ReadJson();
 
 

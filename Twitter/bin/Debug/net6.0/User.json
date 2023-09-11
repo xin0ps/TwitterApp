@@ -1,8 +1,10 @@
 [
-{"Id":"9f3f320e-f13c-4a79-a837-726cbcbbce19",
-"Name":"test",
-"Surname":"test",
-"Age":55,
-"Email":"test@",
-"Password":"test"}
+  {
+    "Id": "c2d5fc8a-953c-4c05-9eb8-e8023ed8c77c",
+    "Name": "user",
+    "Surname": "user",
+    "Age": 16,
+    "Email": "user@",
+    "Password": "user"
+  }
 ]

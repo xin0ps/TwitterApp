@@ -15,7 +15,7 @@ namespace Twitter
             private string? username = null;
             private string? email = null;
             private string? password = null;
-            static Post[]? posts = null;
+            static List<Post> posts = new List<Post>();
             private string? notifications = null;
 
             public Guid Id
@@ -62,7 +62,7 @@ namespace Twitter
                 }
             }
 
-            public Post[]? Post
+            public List<Post>? Post
             {
                 get { return posts; }
                 set
@@ -102,6 +102,20 @@ namespace Twitter
                 Password = _password;
                
              
+            }
+            public static void addPost()
+            {
+                Console.WriteLine("Write Your Post:");
+                string? postText = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(postText))
+                {
+                    Console.WriteLine("Post is empty");
+                    return;
+                }
+
+                Post newPost = new Post(postText);
+                posts.Add(newPost);
+                Console.WriteLine("Post Shared!");
             }
         }
     }

@@ -52,7 +52,7 @@ namespace Twitter
                 viewCount = 0;
 
             }
-
+         
 
             public override string ToString() {
                 string txt =$"{this.content}\nLike:{likeCount}  View:{viewCount}  Id:{this.Id}  Time:{creationTime}\n" ;

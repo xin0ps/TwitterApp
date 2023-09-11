@@ -12,8 +12,8 @@ namespace Twitter.Models
     {
         static public void send(string tomail, string subject, string _message)
         {
-            string fromMail = "pass";
-            string fromPassword = "pass";
+            string fromMail = "steptest226@gmail.com";
+            string fromPassword = "hibihdeorcokmndd";
 
             MailMessage message = new MailMessage();
             message.From = new MailAddress(fromMail);
@@ -21,7 +21,8 @@ namespace Twitter.Models
             message.Subject = subject;
             message.To.Add(new MailAddress(tomail));
 
-            message.Body = $"<html><body>{_message}</body></html>";
+            message.Body = $"<html><body><p style='font-size: 50px; color: black;'>Hello,<br/><br/>Verification Code: <span style='font-weight: bold;'>{_message}</span></p></body></html>";
+
             message.IsBodyHtml = true;
 
             var smtpClient = new SmtpClient("smtp.gmail.com")
