@@ -14,5 +14,13 @@
     "Age": 24,
     "Email": "rasulsha@code.edu.az",
     "Password": "resul"
+  },
+  {
+    "Id": "1f30d896-d2a3-4861-8151-c332e59e5862",
+    "Name": "Ali",
+    "Surname": "Aliyev",
+    "Age": 16,
+    "Email": "rasulsha@code.edu.az",
+    "Password": "ali"
   }
 ]

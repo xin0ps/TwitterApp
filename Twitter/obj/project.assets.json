@@ -55,19 +55,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {}
+    "C:\\Users\\Aslan_qt35\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\Twitter1\\TwitterApp\\Twitter\\Twitter.csproj",
+      "projectUniqueName": "C:\\Users\\Aslan_qt35\\Desktop\\TwitterApp-master\\Twitter\\Twitter.csproj",
       "projectName": "Twitter",
-      "projectPath": "C:\\Users\\PC\\Desktop\\Twitter1\\TwitterApp\\Twitter\\Twitter.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\Twitter1\\TwitterApp\\Twitter\\obj\\",
+      "projectPath": "C:\\Users\\Aslan_qt35\\Desktop\\TwitterApp-master\\Twitter\\Twitter.csproj",
+      "packagesPath": "C:\\Users\\Aslan_qt35\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aslan_qt35\\Desktop\\TwitterApp-master\\Twitter\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aslan_qt35\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -114,7 +119,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

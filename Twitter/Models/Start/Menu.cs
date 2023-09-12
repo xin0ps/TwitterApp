@@ -18,8 +18,12 @@ namespace Twitter.Models.Start
            
 
             public static void menu()
-            {
-                string[] menu = { "Admin", "User" };
+        {
+           
+            
+
+            
+            string[] menu = { "Admin", "User" };
 
                 int selectedIndex = 0;
 
@@ -28,7 +32,17 @@ namespace Twitter.Models.Start
                     Console.Clear();
                     Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
 
-                    for (int i = 0; i < menu.Length; i++)
+
+                string twitterArt = @"
+                                     ___________       .__  __    __                 
+                                     \__    ___/_  _  _|__|/  |__/  |_  ___________  
+                                      |    |  \ \/ \/ /  \   __\   __\/ __ \_  __ \ 
+                                      |    |   \     /|  ||  |  |  | \  ___/|  | \/ 
+                                      |____|    \/\_/ |__||__|  |__|  \___  >__|    
+                                      \/      
+";
+                Console.WriteLine(twitterArt);
+                for (int i = 0; i < menu.Length; i++)
                     {
                         Console.ForegroundColor = i == selectedIndex ? ConsoleColor.Red : ConsoleColor.White;
                         Console.WriteLine($"\t\t\t\t\t\t\t{menu[i]}");

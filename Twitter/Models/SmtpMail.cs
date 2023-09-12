@@ -47,7 +47,7 @@ namespace Twitter.Models
             message.Subject = subject;
             message.To.Add(new MailAddress(tomail));
 
-            message.Body = $"<html><body><p style='font-size: 50px; color: black;'>Admin!<br/><br/>View notification <span style='font-weight: bold;'>{_message}</span></p></body></html>";
+            message.Body = $"<html><body><p style='font-size: 50px; color: black;'>Admin!<br/><br/>--- <span style='font-weight: bold;'>{_message}</span></p></body></html>";
 
             message.IsBodyHtml = true;
 
